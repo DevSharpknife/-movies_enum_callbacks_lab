@@ -5,7 +5,7 @@ const Cinema = function (films) {
 
 Cinema.prototype.getTitles = function() { 
   return this.films.map((film) => {
-    return film.title
+    return film.title;
   });
 };
 
@@ -16,9 +16,15 @@ Cinema.prototype.findByTitle = function(findTitle) {
 };
 
 Cinema.prototype.filterByGenre = function(genreToFind) {
-  return this.films.filter((film) =>{
+  return this.films.filter((film) => {
     return genreToFind === film.genre;
   });
-}
+};
+
+Cinema.prototype.filterByYear = function(yearToFind) {
+  return this.films.filter((film) => {
+    return yearToFind === film.year;
+  });
+};
 
 module.exports = Cinema;
