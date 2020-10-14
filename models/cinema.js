@@ -22,9 +22,21 @@ Cinema.prototype.filterByGenre = function(genreToFind) {
 };
 
 Cinema.prototype.filterByYear = function(yearToFind) {
-  return this.films.filter((film) => {
+  return this.films.some((film) => {
     return yearToFind === film.year;
   });
 };
 
+Cinema.prototype.confirmLengthOver = function(lengthToFind) {
+  return this.films.every((film) => {
+    return lengthToFind < film.length;
+  });
+};
+
+Cinema.prototype.calculateTotalRuntime = function() {
+  return this.films.reduce((runningTotal, film) => {
+    return runningTotal + film.length;
+  }, 0);
+
+}
 module.exports = Cinema;
