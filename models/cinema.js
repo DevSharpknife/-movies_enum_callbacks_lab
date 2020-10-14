@@ -21,7 +21,7 @@ Cinema.prototype.filterByGenre = function(genreToFind) {
   });
 };
 
-Cinema.prototype.filterByYear = function(yearToFind) {
+Cinema.prototype.confirmByYear = function(yearToFind) {
   return this.films.some((film) => {
     return yearToFind === film.year;
   });
@@ -37,6 +37,12 @@ Cinema.prototype.calculateTotalRuntime = function() {
   return this.films.reduce((runningTotal, film) => {
     return runningTotal + film.length;
   }, 0);
+};
 
-}
+Cinema.prototype.filmsByProperty = function(propertyName, value) {
+  return this.films.filter((film) => {
+    return film[propertyName] === value;
+  });
+};
+
 module.exports = Cinema;
